@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- <html lang="zh-Hant-TW"> -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+
+    <!-- IE -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+            <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    <title>Inkhouse | 墨水屋</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+    <link rel="stylesheet" href="dist/swiper4.5/css/swiper.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="dist/jquery-ui-1.12.1/jquery-ui.min.css">
+    <link rel="stylesheet" href="dist/sweetalert2/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="dist/slick/slick.css">
+    <link rel="stylesheet" href="dist/slick/slick-theme.css">
+    <link rel="stylesheet" href="css/style.css?v=200812">
+
+    <script data-search-pseudo-elements defer src="dist/fontawesome-5.5.0/js/all.min.js"></script>
+</head>
+
+<body data-spy="scroll" data-target="#productSlide"  data-offset="108">
+    <div class="wrapper">
+        <!-- NAV START -->
+        <header id="Nav">
+            <!-- 會員控制列表 -->
+            <!-- 手機logo -->
+            <div class="mob-nav-logo">
+                <div class="logo-box">
+                    <a href="index.html"><img src="images/logo.svg" alt="Inkhouse"></a>
+                </div>
+            </div>
+            <!-- 上方黑色控制列 -->
+            <div class="nav-member-bar">
+                <div class="container">
+                    <!-- 手機版左邊按鈕 -->
+                    <div class="mob-controller">
+                        <!-- 手機版漢堡 -->
+                        <button class="menu-toggle" id="menuToggle">
+                            <span class="line"></span>
+                            <span class="line"></span>
+                            <span class="line"></span>
+                        </button>
+                        <!-- 手機版搜尋 -->
+                        <div class="search-box">
+                            <form>
+                                <div class="input-group col-12">
+                                    <input type="search" class="form-control" placeholder="Search" aria-label="Search"
+                                        name="search">
+                                    <button class="btn" type="button" id="search-btn-mob"><i
+                                            class="fas fa-search"></i></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- 桌機右邊會員購物車按鈕 -->
+                    <ul class="login-bar">
+                        <!-- 登入後顯示 -->
+                        <li class="member-btn">
+                            <a href="#"><i class="fas fa-user-circle"></i>Rita</a>
+                            <div class="logout-box" aria-hidden="true">
+                                <a class="main-btn small-btn" href="#">登出</a>
+                            </div>
+                        </li>
+                        <!-- 登入前顯示 -->
+                        <li class="login-btn">
+                            <a href="#"><i class="fas fa-user-circle"></i>登入/註冊</a>
+                        </li>
+
+                        <!-- 購物車點擊彈出視窗 -->
+                        <li class="shopping-cart-btn shoppingcartBtn" role="button">
+                            <a href="#"><i class="fas fa-shopping-bag"></i><span>20</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 下方列 -->
+            <div class="main-menu container">
+                <!-- 語言logo搜尋列-->
+                <div class="nav-top nav">
+                    <!-- 語言切換 -->
+                    <div class="lan-box">
+                        <select class="custom-select">
+                            <option>中文</option>
+                            <option>Dog</option>
+                            <option>Cat</option>
+                            <option>Hamster</option>
+                            <option>Parrot</option>
+                            <option>Spider</option>
+                            <option>Goldfish</option>
+                        </select>
+                    </div>
+                    <!-- 桌機logo -->
+                    <div class="logo-box">
+                        <a href="index.html"><img src="images/logo.png" alt="Inkhouse"></a>
+                    </div>
+                    <!-- 桌機版搜尋列 -->
+                    <div class="search-box col-lg-3 col-xl-2">
+                        <form>
+                            <div class="input-group">
+                                <input type="search" class="form-control" placeholder="Search" aria-label="Search"
+                                    name="search">
+                                <button class="btn" type="submit"><i class="fas fa-search"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- 導覽選單 -->
+                <nav class="main-nav">
+                    <!-- 手機版nav關閉按鈕 -->
+                    <button class="toggle-close-btn mob-nav-btn" aria-hidden="true"><i
+                            class="fas fa-times"></i></button>
+                    <!-- 選單 -->
+                    <ul class="nav">
+                        <!-- 手機版登入登出 -->
+                        <li class="mob-display">
+                            <ul class="login-bar">
+                                <!-- 登入後顯示 -->
+                                <li class="member-btn">
+                                    <a href="#"><i class="fas fa-user-circle"></i>Rita</a>
+                                    <div class="logout-box" aria-hidden="true">
+                                        <a class="main-btn small-btn" href="#">登出</a>
+                                    </div>
+                                </li>
+                                <!-- 登入前顯示 -->
+                                <li class="login-btn">
+                                    <a href="#"><i class="fas fa-user-circle"></i>登入/註冊</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- 直接連結，沒有子目錄 -->
+                        <li>
+                            <a class="navLink" href="news.html">最新消息</a>
+                        </li>
+                        <li>
+                            <a class="navLink" href="brandstory.html">品牌故事</a>
+                        </li>
+                        <!-- 有連結，有子目錄 -->
+                        <li class="dropdown-btn">
+                            <a class="navLink" href="products-pen.html">在線品牌</a>
+                            <span class="icon"><i class="fas fa-angle-right"></i></span>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-content container">
+                                    <ul class="col-xl-3 col-lg-4">
+                                        <li>
+                                            <a href="javascript:void(0)">INK HOUSE</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">INK WALL</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">AP LIMITED EDITION DANITRIO</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">444</a>
+                                        </li>
+                                    </ul>
+                                    <ul class="col-xl-3 col-lg-4">
+                                        <li>
+                                            <a href="javascript:void(0)">INK HOUSE</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">INK WALL</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">AP LIMITED EDITION DANITRIO</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">444</a>
+                                        </li>
+                                    </ul>
+                                    <ul class="col-xl-3 col-lg-4">
+                                        <li>
+                                            <a href="javascript:void(0)">INK HOUSE</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">INK WALL</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">AP LIMITED EDITION DANITRIO</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">444</a>
+                                        </li>
+                                    </ul>
+                                    <ul class="col-xl-3 col-lg-4">
+                                        <li>
+                                            <a href="javascript:void(0)">INK HOUSE</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">INK WALL</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">AP LIMITED EDITION DANITRIO</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">444</a>
+                                        </li>
+                                    </ul>
+                                    <ul class="col-xl-3 col-lg-4">
+                                        <li>
+                                            <a href="javascript:void(0)">55AP LIMITED EDITION DANITRIO</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">INK WALL</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">AP LIMITED EDITION DANITRIO</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">444</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="dropdown-btn">
+                            <a class="navLink" href="products-pen.html">筆類產品</a>
+                            <span class="icon"><i class="fas fa-angle-right"></i></span>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-content container">
+                                    <ul class="col-xl-3 col-lg-4">
+                                        <li>
+                                            <a href="javascript:void(0)">INK HOUSE</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">INK WALL</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">AP LIMITED EDITION DANITRIO</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">444</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="dropdown-btn">
+                            <a class="navLink" href="products-ink.html">墨水產品</a>
+                            <span class="icon"><i class="fas fa-angle-right"></i></span>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-content container">
+                                    <ul class="col-xl-3 col-lg-4">
+                                        <li>
+                                            <a href="javascript:void(0)">INK HOUSE</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">INK WALL</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">AP LIMITED EDITION DANITRIO</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">444</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="dropdown-btn">
+                            <a class="navLink" href="product-paper.html">紙類產品</a>
+                            <span class="icon"><i class="fas fa-angle-right"></i></span>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-content container">
+                                    <ul class="col-xl-3 col-lg-4">
+                                        <li>
+                                            <a href="javascript:void(0)">INK HOUSE</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">INK WALL</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">AP LIMITED EDITION DANITRIO</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">444</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="dropdown-btn">
+                            <a class="navLink" href="product-other.html">其他產品</a>
+                            <span class="icon"><i class="fas fa-angle-right"></i></span>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-content container">
+                                    <ul class="col-xl-3 col-lg-4">
+                                        <li>
+                                            <a href="javascript:void(0)">INK HOUSE</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">INK WALL</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">AP LIMITED EDITION DANITRIO</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">444</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="dropdown-btn">
+                            <a class="navLink" href="collections.html">匠心臻品</a>
+                            <span class="icon"><i class="fas fa-angle-right"></i></span>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-content container">
+                                    <ul class="col-xl-3 col-lg-4">
+                                        <li>
+                                            <a href="javascript:void(0)">INK HOUSE</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">INK WALL</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">AP LIMITED EDITION DANITRIO</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">444</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <a class="navLink" href="events.html">體驗館</a>
+                        </li>
+                        <li>
+                            <a class="navLink" href="contact_us.html">聯繫我們</a>
+                        </li>
+                        <!-- 手機版語言切換 -->
+                        <li class="mob-display">
+                            <div class="lan-box">
+                                <select class="custom-select">
+                                    <option>中文</option>
+                                    <option>Dog</option>
+                                    <option>Cat</option>
+                                    <option>Hamster</option>
+                                    <option>Parrot</option>
+                                    <option>Spider</option>
+                                    <option>Goldfish</option>
+                                </select>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <!-- NAV END -->
+        <!-- 麵包屑 START -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">首頁</a></li>
+                <li class="breadcrumb-item"><a href="brands.html">Namiki</a></li>
+                <li class="breadcrumb-item"><a href="product_pen.html">筆類產品</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><a href="#">並木 Emperor 系列 限量版招き貓</a></li>
+            </ol>
+        </nav>
+        <!-- 麵包屑 END -->
+        <!-- 購物車視窗 -->
+        <!-- 購物車視窗 END-->
+        <!-- 內容開始 -->
+        <div class="inner-content product-detail-inner collection-inner">
+            <div class="container">
+                <!-- 品牌logo -->
+                <div class="brand-logo">
+                    <img src="images/collection-logo.png" alt="">
+                </div>
+                <!-- 色票 -->
+                <div class="swatch" id="swatchBox">
+                    <button class="swatch-btn" role="button" id="swatchBtn"><i class="fas fa-ellipsis-h"></i></button>
+                    <button class="close-element" aria-hidden="true" id="CloseswatchBox"><i
+                            class="fas fa-times"></i></button>
+                    <div class="swatch-box d-flex flex-wrap justify-content-start">
+                        <a href="javascript:void(0)" class="active col-3 col-md-2 col-lg-1">
+                            <span class="color" style="background: red;"></span><span>白色</span></a>
+                        <a href="javascript:void(0)" class="col-3 col-md-2 col-lg-1">
+                            <span class="color" style="background: #000;"></span><span>白色</span></a>
+                        <a href="javascript:void(0)" class="col-3 col-md-2 col-lg-1">
+                            <span class="color" style="background: #000;"></span><span>白色</span></a>
+                        <a href="javascript:void(0)" class="col-3 col-md-2 col-lg-1">
+                            <span class="color" style="background: #000;"></span><span>白色</span></a>
+                        <a href="javascript:void(0)" class="col-3 col-md-2 col-lg-1">
+                            <span class="color" style="background: #000;"></span><span>白色</span></a>
+                        <a href="javascript:void(0)" class="col-3 col-md-2 col-lg-1">
+                            <span class="color" style="background: #000;"></span><span>白色</span></a>
+                        <a href="javascript:void(0)" class="col-3 col-md-2 col-lg-1">
+                            <span class="color" style="background: #000;"></span><span>白色</span></a>
+                        <a href="javascript:void(0)" class="col-3 col-md-2 col-lg-1">
+                            <span class="color" style="background: #000;"></span><span>白色</span></a>
+                        <a href="javascript:void(0)" class="col-3 col-md-2 col-lg-1">
+                            <span class="color" style="background: #000;"></span><span>白色</span></a>
+                        <a href="javascript:void(0)" class="col-3 col-md-2 col-lg-1">
+                            <span class="color" style="background: #000;"></span><span>白色</span></a>
+                        <a href="javascript:void(0)" class="col-3 col-md-2 col-lg-1">
+                            <span class="color" style="background: #000;"></span><span>白色</span></a>
+                        <a href="javascript:void(0)" class="col-3 col-md-2 col-lg-1">
+                            <span class="color" style="background: #000;"></span><span>白色</span></a>
+                        <a href="javascript:void(0)" class="col-3 col-md-2 col-lg-1">
+                            <span class="color" style="background: #000;"></span><span>白色</span></a>
+                        <a href="javascript:void(0)" class="col-3 col-md-2 col-lg-1">
+                            <span class="color" style="background: #000;"></span><span>白色</span></a>
+                    </div>
+
+                </div>
+                <!-- 商品內容 -->
+                <div class="product-content">
+                    <div class="row">
+                        <div class="productSlide-block col-lg-6">
+                            <!-- 商品圖茅點 -->
+                            <nav class="productSlide-controller" id="productSlide">
+                                <ul class="slide-nav-pill nav" id="slideNav">
+                                    <!-- jquery動態產生
+                                  <li class="nav-item">
+                                    <a class="nav-link" href="#p01"></a>
+                                  </li> -->
+                                </ul>
+                            </nav>
+                            <!-- 商品圖 / 手機版變slider -->
+                            <div class="productSlide">
+                                <!-- jquery動態產生 img-box ID -->
+                                <div class="img-box">
+                                    <img src="images/detail.png" alt="">
+                                </div>
+                                <div class="img-box">
+                                    <img src="images/detail.png" alt="">
+                                </div>
+                                <div class="img-box">
+                                    <img src="images/detail.png" alt="">
+                                </div>
+                                <div class="img-box">
+                                    <img src="images/detail.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="productInfo-Block col-lg-6">
+                            <div class="productInfo-wrap">
+                                <div class="productInfo">
+                                    <div class="text-box">
+                                        <p class="_type">並木 Emperor 系列</p>
+                                        <p>限量版招き貓</p>
+                                        <p class="_data _pid" data-title="型號">10-7711-920</p>
+                                    </div>
+                                    <div class="page-btn-wrap">
+                                        <button type="submit" class="main-btn">聯絡客服</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 模板 -->
+            <!-- 模板END -->
+            <!-- 產品說明＆包裝 -->
+            <div class="container">
+                <div class="detail-box">
+                    <h4 class="sub-title sec-seb">產品說明</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="img-box"><img src="images/detail.png" alt=""></div>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="text-box">內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
+                                內容內容內容內容內容內容內容內容內容內容內容內容內容內容</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-box">
+                    <h4 class="sub-title sec-seb">包裝</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="img-box"><img src="images/detail.png" alt=""></div>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="text-box">內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
+                                內容內容內容內容內容內容內容內容內容內容內容內容內容內容</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 內容結束 -->
+        <!-- Footer -->
+        <!-- Footer END -->
+    </div>
+
+    <!-- ALL SITE JS -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="dist/boostrap4.2.1/js/popper.min.js"></script>
+    <script src="dist/boostrap4.2.1/js/bootstrap.min.js"></script>
+    <script src="dist/swiper4.5/js/swiper.min.js"></script>
+    <script src="dist/sweetalert2/dist/sweetalert2.min.js"></script>
+    <script src="dist/jquery-ui-1.12.1/jquery-ui.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/product-detail.js"></script>
+    <script src="dist/slick/slick.min.js"></script>
+
+    <!-- 模組輪播4張圖 -->
+    <script>
+        $(function () {
+            var slickOptions = {
+                slidesToShow: 2,
+                slidesToScroll: 2,
+                mobileFirst: true,
+                dots: true,
+                arrows: false,
+                responsive: [{
+                    breakpoint: 992,
+                    settings: 'unslick'
+                }]
+            }
+            var timer = null;
+            $(window).on('resize', function () {
+                var width = $(window).width();
+                window.clearTimeout(timer);
+                timer = window.setTimeout(function () {
+                    if (width < 992) {
+                        $('.slideFour').slick(slickOptions);
+                    } else {
+
+                    }
+                }, 500);
+            }).trigger("resize");
+        });
+    </script>
+</body>
+
+</html>

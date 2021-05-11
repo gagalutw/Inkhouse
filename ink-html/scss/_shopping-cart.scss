@@ -1,0 +1,608 @@
+//購物車清單
+.shopping-inner {
+    .text-row {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .sub-title {
+        margin-bottom: 1rem;
+        // margin-top: 1rem;
+        text-align: left;
+        justify-content: flex-start;
+
+        &::before {
+            display: none;
+        }
+
+        padding: 8px 15px;
+        @include theme-colors(dark-theme);
+
+        &:hover {
+            background: $black;
+            border: 1px solid $black;
+        }
+    }
+
+    // 購物STEP
+    .shopping-step-nav {
+        .nav {
+            justify-content: center;
+
+            li {
+                counter-increment: li;
+                margin: 20px;
+
+                @include media-breakpoint-up(lg) {
+                  min-width: 250px;
+                }
+
+                a {
+                    display: inline-block;
+                    vertical-align: middle;
+                    color: $light-gray;
+
+                    &::before {
+                        content: ""counter(li)"";
+                        color: #fff;
+                        display: inline-block;
+                        vertical-align: middle;
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 50%;
+                        margin-right: 1rem;
+                        background-color: $light-gray;
+                        line-height: 42px;
+                        text-align: center;
+                        padding-left: 2px;
+                        font-weight: 500;
+                        font-size: 1.5rem;
+                    }
+
+                    &.active {
+                        color: $lighten-black;
+
+                        &::before {
+                            background-color: $lighten-black;
+                        }
+                    }
+                }
+            }
+
+            @include media-breakpoint-down(lg) {
+                justify-content: space-between;
+
+                li {
+                    width: 33.333333%;
+                    text-align: center;
+                    margin: 0;
+
+                    a::before {
+                        display: block;
+                        margin: 0 auto 10px;
+                    }
+                }
+            }
+        }
+    }
+
+
+    // 1購物清單
+    .shopping-list-block {
+
+        .list-row-title {
+            ._price {
+                text-align: right;
+            }
+        }
+
+        .product-row {
+
+            ._price {
+                font-weight: 500;
+            }
+
+            //2單價數量
+            .unitpriceBox {
+                div {
+                    align-items: center;
+                }
+
+                >div {
+                    margin: 15px auto;
+                }
+
+                ._amount {
+                    text-align: center;
+                }
+
+                .saleoff {
+                    color: $main-gray;
+                    font-size: .7rem;
+                }
+
+                @include media-breakpoint-down(lg) {
+                    >div {
+                        justify-content: flex-end;
+                    }
+
+                    .saleoff {
+                        padding-left: 0px;
+                    }
+                }
+            }
+
+            //3點數金額
+            .pointBox {
+                white-space: nowrap;
+
+                ._point {
+                    text-align: center;
+                }
+
+                ._price {
+                    text-align: right;
+                }
+
+                ._point,
+                ._price {
+                    font-weight: 500;
+                }
+            }
+
+        }
+
+        .hint {
+            color: $red;
+            font-weight: 500;
+            padding: 10px 0;
+        }
+
+        .pricetable-block+.hint {
+            margin-left: -15px;
+        }
+
+
+        @include media-breakpoint-down(md) {
+            font-size: .8rem;
+
+            //購物車商品列表
+            .product-row {
+                border: none;
+                background: $lighten-gray;
+                margin-right: 0;
+                margin-left: 0;
+                padding-top: 10px;
+                margin-bottom: 15px;
+
+                //1商品資訊
+                .infoBox {
+                    order: 2;
+                    padding: 0;
+                }
+
+                //2單價數量
+                .unitpriceBox {
+                    order: 3;
+                    padding: 0;
+
+                    ._amount {
+                        padding: 0;
+                    }
+                }
+
+                //3點數金額
+                .pointBox {
+                    justify-content: flex-end;
+                    order: 4;
+                    padding: 0;
+
+                    ._price {
+                        padding-right: 15px;
+                    }
+                }
+
+                //4移除商品X按鈕
+                .cancelBox {
+                    order: 1;
+                    text-align: right;
+                    padding-right: 10px;
+                    padding-top: 10px;
+                }
+            }
+
+            .pricetable-block+.hint {
+                margin-left: 0px;
+            }
+        }
+
+        @include media-breakpoint-down(sm) {
+            .main-btn {
+                width: 100%;
+                padding: 0.8rem 1.5rem;
+                margin-left: 0;
+                margin-bottom: 15px;
+            }
+        }
+    }
+
+
+    //按鈕
+    .page-btn-wrap {
+        text-align: right;
+        @include UP-lg-margin-lr-15;
+        justify-content: flex-end;
+
+        .main-btn {
+            margin-right: 0;
+
+
+        }
+    }
+
+    //活動
+    @include media-breakpoint-down(md) {
+        .event-row {
+            >div {
+                margin-bottom: 1rem;
+
+            }
+
+            div._data::before {
+                font-weight: 500;
+            }
+        }
+    }
+
+}
+
+//2填寫訂購資料
+.delivery-block {
+    .form-block {
+        .form-group {
+            margin-top: 1.3rem;
+        }
+    }
+
+    //訂單詳細列表
+
+    .orderBox {
+        padding: 0 15px 0 15px;
+        border: none;
+
+        .sub-title {
+            display: flex;
+            justify-content: space-between;
+
+            &[aria-expanded="true"] {
+                svg.fa-plus {
+                    display: none;
+                }
+
+                span::after {
+                    content: "\f068";
+                    @extend %fontAwe;
+                }
+            }
+
+            svg {
+                margin: 0;
+            }
+
+            &[role="button"] {
+                pointer-events: visible;
+                cursor: pointer;
+            }
+        }
+
+
+        .list-row-table {
+            margin: 15px auto;
+
+            @include media-breakpoint-up(lg) {
+                ._amount {
+                    text-align: center;
+                }
+            }
+
+            @include media-breakpoint-down(md) {
+                .list-row-title {
+                    display: none;
+                }
+
+                ._point._data {
+                    margin-left: 0;
+                }
+            }
+
+            .list-row {
+                margin-left: 0;
+                margin-right: 0;
+                align-items: flex-start;
+            }
+        }
+
+
+        @include media-breakpoint-down(sm) {
+            margin-bottom: 15px;
+
+            .sub-title {
+                margin: 0;
+            }
+
+            .list-row>div {
+                padding: 0;
+            }
+        }
+    }
+
+    //左訂購資料
+    .order-detail-box {
+        >div {
+            margin-bottom: 2rem;
+        }
+
+        .main-btn {
+            margin: 0;
+        }
+
+        .shippingAdd {
+            @include media-breakpoint-up(lg) {
+                .text-row {
+                    padding-left: 15px;
+                    padding-right: 15px;
+                }
+            }
+        }
+
+        .addressList {
+            .form-group.row {
+                // margin: 0;
+            }
+
+            .addressOption {
+                margin-bottom: 15px;
+                // padding-left: 0;
+                cursor: pointer;
+                overflow: hidden;
+
+                input[type="radio"] {
+                    cursor: pointer;
+                    position: absolute;
+                    opacity: 0;
+                    width: 100%;
+                    height: 100%;
+                    margin: 0;
+                    overflow-x: hidden;
+
+                    &:checked,
+                    &:hover {
+                        +label {
+                            border: 1px solid $black;
+                            background: $lighten-gray;
+                        }
+                    }
+                }
+
+                label {
+                    width: 100%;
+                    border: 1px solid $light-gray;
+                    min-height: 106px;
+
+                    p {
+                        @extend %text-ellipsis;
+                        @include text-ellipsis-one;
+                    }
+
+                    @include transition-cubic;
+
+                    .address-list {
+                        display: block;
+                        padding: 10px;
+                        margin: 0;
+                    }
+                }
+            }
+
+        }
+    }
+
+
+    //右付款方式
+    .payment-box {
+        .form-check {
+            margin-bottom: 15px;
+
+            .form-check-input {
+                margin-top: 8px;
+            }
+
+            label {
+                width: 100%;
+
+                span {
+                    min-width: 70px;
+                    display: inline-block;
+                }
+
+                p {
+                    display: inline-block;
+
+                    img {
+                        max-width: 50px;
+                        margin-right: 10px;
+                        display: inline-block;
+                    }
+                }
+
+            }
+        }
+
+        .hintBox {
+            margin-top: 30px;
+
+            p {
+                color: $main-gray;
+                margin-bottom: 10px;
+            }
+
+            .form-check {
+                input {
+                    margin-top: 5px;
+                }
+            }
+        }
+    }
+
+    .summaryInfo {
+        margin-top: 30px;
+        padding: 15px;
+        color: $main-gray;
+        background-color: $lighten-gray;
+
+        .priceBox {
+            span.hint {
+                font-weight: inherit;
+
+                @include media-breakpoint-down(sm) {
+                    margin-bottom: 5px;
+                    font-size: .8rem;
+                    text-align: left;
+                }
+            }
+
+            p,
+            span,
+            ._total ._title {
+                font-weight: 500;
+            }
+
+            ._total {
+                font-size: 1.2rem;
+
+                ._price {
+                    color: $red;
+                }
+            }
+        }
+    }
+
+    .page-btn-wrap .main-btn {
+        margin-right: auto;
+    }
+}
+
+//活動
+.event-cart-block {
+    .event-row {
+        align-items: flex-start;
+
+        .infoBox .img-box {
+            padding: 0;
+        }
+
+        .unitpriceBox {
+            font-weight: 500;
+
+            &._data::before {
+                padding-right: 0.3rem;
+            }
+        }
+
+        .form-check {
+            margin-bottom: 10px;
+        }
+
+        @include media-breakpoint-up(lg) {
+            ._date._data::before {
+                display: none;
+            }
+        }
+
+        @include media-breakpoint-down(md) {
+
+            ._date {
+                font-weight: 500;
+                margin-top: 5px;
+            }
+
+            .unitpriceBox {
+                display: flex;
+            }
+
+        }
+    }
+}
+
+.event-delivery-block {
+    .noteBox .sub-title {
+        .small-btn {
+            margin-left: 20px;
+            text-decoration: none;
+
+            &:hover {
+                border-color: $white;
+            }
+        }
+    }
+
+    .orderBox {
+        padding: 0;
+    }
+}
+
+
+
+//3訂購完成
+.order-done-block {
+    .done-text {
+        font-size: 1.2rem;
+        font-weight: 400;
+        @include media-breakpoint-down(xs){
+        font-size: 1.1rem;
+        }
+    }
+
+    .receiver {
+        @include media-breakpoint-down(sm) {
+            padding: 0 15px;
+            font-weight: 500;
+            margin-top: 15px;
+        }
+    }
+}
+
+//複製的總覽
+.mob-priceBox {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    z-index: 500;
+    box-shadow: 0px -2px 10px 0px rgba(0, 0, 0, 0.3);
+    transform: translateY(100%);
+    // background-color: rgba(247, 247, 247, .7) !important;
+    @include transition-cubic;
+
+    &.show {
+        transform: translateY(0%);
+    }
+
+    .pricetable-block {
+        ._total {
+            margin-top: 5px;
+
+            p {
+                margin-bottom: 0;
+            }
+        }
+
+        .priceBox .hint{
+            display: block;
+        }
+    }
+
+
+
+}
+

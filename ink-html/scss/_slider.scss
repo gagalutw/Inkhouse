@@ -1,0 +1,35 @@
+
+/*--------全站Slick--------*/
+.slick-wrap {
+    position: relative;
+    
+}
+.slick-prev, .slick-next{
+    color: $white;
+    svg{
+        font-size: 1.2rem;
+    }
+    &:hover{
+    color: $light-gray;
+    }
+}
+
+.slick-prev:before, .slick-next:before {
+    @extend %fontAwe;
+    line-height: 1;
+    opacity: 1;
+}
+.slick-prev:before{
+    content: "\f0d9";
+}
+.slick-next:before{
+    content: "\f0da";
+}
+.slick-slide{
+    font-size: 0;
+    span{
+        font-size: initial;
+    }
+    
+}
+/*--------全站Slick--------*/

@@ -1,0 +1,206 @@
+// 會員中心
+.member-inner {
+    // 上方會員狀態
+    .member-status {
+        background-color: $lighten-black;
+        padding: 20px;
+        color: $white;
+        align-items: center;
+
+        >.row {
+            // align-items: center;
+        }
+
+        p {
+            margin-bottom: 0;
+        }
+
+            //0226
+        .status-title{
+            @include Dflex;
+            align-items: center;
+            margin-bottom: 10px;
+            .title {
+                font-size: 1.3rem;
+                font-weight: 500;
+            }
+
+            a {
+                color: $white;
+                font-size: .8rem;
+                text-decoration: underline;
+                margin-left: 10px;
+            }
+        }
+        .status-box {
+            // align-self: baseline;
+            >.row{
+                margin-bottom: 10px;
+            }
+            .title {
+                font-size: 1.3rem;
+                font-weight: 500;
+            }
+
+            a {
+                color: $white;
+                font-size: .8rem;
+                text-decoration: underline;
+            }
+        }
+
+        .point-box {
+            >.row{
+                margin-bottom: 10px;
+            }
+            .hint {
+                margin-left: 10px;
+
+                &::before,
+                svg {
+                    display: none;
+                }
+            }
+        }
+
+        .pointBtn-box {
+            text-align: right;
+
+            .main-btn {
+                @include theme-colors(light-theme);
+
+                .camera {
+                    font-size: 1.5rem;
+                    vertical-align: text-bottom;
+                    margin-right: .5rem;
+                }
+            }
+        }
+
+        @include media-breakpoint-up(xl) {
+            padding: 30px;
+        }
+
+        @include media-breakpoint-down(md) {
+            .point-box .hint {
+                display: block;
+                margin-left: 0px;
+            }
+
+            .status-title a{
+                margin-left: 0;
+            }
+
+            .status-box,
+            .point-box {
+                >div {
+                    margin-bottom: 10px;
+                }
+            }
+
+        }
+
+    }
+    .member-content {
+        padding: 50px 0;
+
+        @include media-breakpoint-down(lg) {
+            padding: 30px 0;
+        }
+
+        //桌機版左邊導覽列
+        .member-nav {
+            .nav {
+                @include web-display;
+
+                a {
+                    background-color: $lighten-gray;
+                    padding: 1rem;
+                    border-bottom: 2px solid $white;
+
+                    &.active {
+                        @include theme-colors(dark-theme);
+                    }
+
+                    &:hover {
+                        background-color: $lighten-black;
+                        color: $white;
+                    }
+                }
+            }
+
+            .mob-nav {
+                @include mob-display;
+                margin-bottom: 20px;
+
+                .custom-select {
+                    width: 100%;
+                }
+            }
+
+        }
+
+        //tab單頁內容
+        .member-block {
+            p {
+                margin: 0;
+            }
+
+            >div {
+                margin-bottom: 3rem;
+            }
+            // 1.個人資料修改
+            .address-box {
+                .address-list {
+                    border-bottom: 1px solid $light-gray;
+                }
+            }
+            // 3.體驗館報名紀錄
+            .event-box {
+                .event-row {
+                    align-items: flex-start;
+                    display: block;
+
+                    span {
+                        display: block;
+                    }
+
+                    &._data::before {
+                        width: 100%;
+                    }
+                }
+            }
+
+            @include media-breakpoint-down(sm) {
+                .sub-title.sec-seb {
+                    margin-bottom: 0;
+                }
+                .list-row>div {
+                    display: flex;
+                }
+                .event-box .list-row {
+                    align-items: flex-start;
+                }
+
+                .form-block{
+                    margin-top: 20px;
+                }
+
+                .list-row{
+
+                    .list-row>div {
+                        margin-bottom: .3rem;
+                    }
+
+                    >._data::before {
+                        width: 39%;
+                        min-width: 38%;
+                        padding-right: 0;
+                        margin-right: 10px;
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+    }
+}

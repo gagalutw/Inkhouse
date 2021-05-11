@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- <html lang="zh-Hant-TW"> -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    <!-- IE -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+            <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    <title>Inkhouse | 墨水屋</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+    <link rel="stylesheet" href="dist/jquery-ui-1.12.1/jquery-ui.min.css">
+    <link rel="stylesheet" href="dist/jquery-ui-1.12.1/jquery-ui.theme.min.css">
+    <link rel="stylesheet" href="css/style.css?v=200812">
+    <link rel="stylesheet" href="css/store_point.css?v=20201229">
+    <script data-search-pseudo-elements defer src="dist/fontawesome-5.5.0/js/all.min.js"></script>
+    <style>
+        .wrapper {
+            font-weight: 400;
+        }
+
+        header .nav-member-bar .container {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .sub-title {
+            color: #fff;
+            margin: 0;
+        }
+
+        .sub-title::before {
+            content: "";
+            display: inline-block;
+            background: url(../images/kvlogow.png) no-repeat center / contain;
+            width: 40px;
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .login-bar {
+            align-items: center;
+        }
+
+        .hint {
+            margin-top: 10px;
+        }
+
+        header .nav-member-bar .login-bar li.member-btn {
+            display: block;
+        }
+
+        @media (max-width: 991.98px) {
+
+            header .nav-member-bar .login-bar li.member-btn .logout-box {
+                left: auto;
+                right: -15px;
+                transform: translateX(0%);
+                display: none;
+            }
+
+            header .nav-member-bar .login-bar li.member-btn:hover .logout-box {
+                display: block;
+            }
+
+            .member-block {
+                margin-top: 80px;
+            }
+        }
+
+
+        .form-block .in-spinner {
+            margin: 0;
+        }
+
+        .form-block .ui-spinner.ui-widget.ui-widget-content .ui-spinner-input {
+            width: 100%;
+            height: calc(2.25rem + 2px);
+            padding: 0.375rem 0.75rem;
+        }
+
+        .form-block .ui-spinner.ui-widget.ui-widget-content .ui-spinner-button {
+            height: calc(2.25rem + 2px);
+        }
+    </style>
+</head>
+
+
+
+<body>
+    <div class="wrapper">
+        <header id="Nav">
+            <!-- 上方黑色控制列 -->
+            <div class="nav-member-bar">
+                <div class="container">
+                    <h4 class="sub-title">積分登記</h4>
+
+                    <ul class="login-bar">
+                        <select class="custom-select">
+                            <option>中文</option>
+                            <option>Dog</option>
+                            <option>Cat</option>
+                            <option>Hamster</option>
+                            <option>Parrot</option>
+                            <option>Spider</option>
+                            <option>Goldfish</option>
+                        </select>
+                        <!-- 登入後顯示 -->
+                        <li class="member-btn">
+                            <a href="#"><i class="fas fa-user"></i>Rita</a>
+                            <div class="logout-box" aria-hidden="true">
+                                <a class="main-btn small-btn" href="#">登出</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 下方列 -->
+        </header>
+        <div class="container">
+            <div class="form-block member-block col-md-6">
+                <h1 style="margin-bottom: 20px; font-weight: 500; text-align: center;">店鋪專⽤：交易登記/積分折抵</h1>
+                <form id="">
+                    <div class="form-group row">
+                        <label for="store" class="col-md-3 col-form-label">消費店家</label>
+                        <div class="col-md-9">
+                            <select class="form-control ">
+                                <option>請選擇</option>
+                                <option>Dog</option>
+                                <option>Cat</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="memberid" class="col-md-3 col-form-label">會員編號</label>
+                        <div class="col-md-9">
+                            <input type="text" name="memberid" class="form-control " placeholder="會員編號" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="validation" class="col-md-3 col-form-label">驗證碼</label>
+                        <div class="col-md-9">
+                            <input type="text" name="validation" class="form-control " placeholder="驗證碼" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="buydayte" class="col-md-3 col-form-label">消費日期</label>
+                        <div class="col-md-9">
+                            <input type="text" name="buydayte" class="form-control " placeholder="消費日期"
+                                data-date="pickDate" required id="datepicker"><button class="calendar"
+                                type="button"></button>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="price" class="col-md-3 col-form-label">購物金額</label>
+                        <div class="col-md-9">
+                            <input type="text" name="price" class="form-control " placeholder="購物金額" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="point" class="col-md-3 col-form-label">折抵點數</label>
+
+                        <div class="in-spinner col-md-6">
+                            <input class="spinner" value="0">
+                            <span class="hint">1,000點積分兌換HK$5</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="redeem" class="col-md-3 col-form-label">折抵金額</label>
+                        <div class="col-md-9" style="color: #f00; font-size: 1.2rem;">
+                            <span class="_data" data-title="HK$"></span>10
+                        </div>
+                    </div>
+
+                    <div class="page-btn-wrap"> <button type="submit" class="main-btn">送出</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ALL SITE JS -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="dist/boostrap4.2.1/js/popper.min.js"></script>
+    <script src="dist/boostrap4.2.1/js/bootstrap.min.js"></script>
+    <script src="dist/jquery-ui-1.12.1/jquery-ui.js"></script>
+    <script src="js/common.js"></script>
+
+    <script>
+        $(function () {
+            $("#datepicker").datepicker();
+            $(".spinner").spinner();
+            $(".spinner").spinner({
+                min: 0,
+                step: 1000,
+                start: 0,
+            });
+        });
+    </script>
+</body>
+
+</html>

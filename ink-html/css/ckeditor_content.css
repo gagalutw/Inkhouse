@@ -1,0 +1,232 @@
+body.cke_editable.cke_editable_themed {
+    max-width: 1366px;
+    margin: 100px auto 0;
+    padding: 10px;
+}
+
+
+
+.cke_editable *:focus {
+    outline: -webkit-focus-ring-color auto 5px;
+}
+
+.section {
+    background: #F7F7F7;
+    padding: 30px;
+    transition: all 0.3s ease-in-out;
+    border: 1px solid #f7f7f7;
+    margin: 0 auto 70px;
+    position: relative;
+    /* outline:2px solid transparent; */
+}
+
+
+.cke_editable .section>div {
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+.cke_editable .section:hover,
+.cke_editable .section:focus {
+    background-color: #FFFBDD;
+    outline: 2px solid #ffca86;
+}
+
+.cke_editable .section p,
+.cke_editable .section h5,
+.cke_editable .section h2,
+.cke_editable .section h3 {
+    padding: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+
+.cke_editable .section>* {
+    margin-bottom: 20px;
+    padding: 0px;
+    background: transparent;
+    transition: all 0.3s ease-in-out;
+    outline: 2px solid transparent;
+}
+
+.cke_editable .section>*:focus {
+    outline: 2px solid #ffca86;
+}
+
+
+.section .text-box * {
+    outline: 2px solid transparent;
+}
+
+
+.section .text-box *:hover,
+.section .text-box *:focus {
+    background-color: #FFF;
+    outline: 2px solid #ffca86;
+
+}
+
+/* .cke_widget_wrapper.cke_widget_focused>.cke_widget_element, .cke_widget_wrapper .cke_widget_editable.cke_widget_editable_focused{
+    outline:2px solid #47a4f5
+} */
+
+
+
+
+
+/* oembed套件影片 RWD設定 */
+
+.cke_widget_wrapper .cke_widget_element {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    overflow: hidden;
+}
+
+
+
+/* youtube上傳 .cke_widget_wrapper .cke_widget_wrapper_oembed-provider-youtube  */
+/* .cke_widget_wrapper .oembed-provider-youtube.cke_widget_element{
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    overflow: hidden;
+} */
+/* .cke_widget_wrapper .cke_widget_wrapper_oembed-provider-youtube .video-wrap{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+} */
+
+.cke_editable .section .html5-video-container {
+    height: -webkit-fill-available;
+}
+
+.cke_widget_wrapper:hover>.cke_widget_element {
+    outline: 2px solid #ffd25c;
+
+}
+
+/* 影片遮色片設定 雙擊影片即可更新 */
+/* .cke_editable .section .cke_widget_oembed .cke_widget_mask{
+    z-index: 0;
+    height: 100%;
+    width: 100%;
+    max-height: 100%;
+    max-width: 100%;
+    outline: 2px solid -webkit-focus-ring-color;
+} */
+
+
+/* 影片上傳 cke_widget_wrapper cke_widget_html5video */
+
+
+
+/* Templates下拉選單樣式 */
+.a.dropdown-item.template_btn img {
+    margin-left: 0 !important;
+    margin-right: 10px;
+}
+
+
+
+
+/* 模組控制按鈕 */
+.section .delete-btn, .section .arrow-btn{
+    position: absolute;
+    font-size: 2rem;
+    color: #9B9B9B;
+    cursor: pointer;
+    top: -55px;
+}
+
+.section .delete-btn {
+    right: 0px;
+    width: 30px;
+}
+
+.section .delete-btn span:hover, .section .arrow-btn span:hover {
+    color: #dc3545;
+}
+
+.section .delete-btn span, .section .arrow-btn span {
+    transition: all 0.3s ease-in-out;
+}
+
+.section .arrow-btn {
+    display: flex;
+    align-items: center;
+    right: 55px;
+}
+.section .arrow-btn svg {
+    margin-right: 5px;
+}
+
+
+/* 模組樣式  GRID.CSS*/
+img {
+    width: 100%;
+    height: auto;
+}
+
+.blog-grid {
+    padding: 20px;
+}
+
+
+.blog-grid .img-wrap,
+.blog-grid .text-wrap {
+    padding: 0;
+}
+
+
+
+.blog-grid .video-wrap iframe,
+.blog-grid .video-wrap video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.blog-grid.right-flow {
+    flex-direction: row-reverse;
+}
+
+.blog-grid .text-box {
+    text-align: justify;
+
+}
+
+.blog-grid p {
+    line-height: 1.8;
+}
+
+
+.blog-grid h1,
+.blog-grid h2,
+.blog-grid h3,
+.blog-grid h4,
+.blog-grid h5,
+.blog-grid h6 {
+    color: #007C2F;
+}
+
+
+.blog-grid .sub-title-p {
+    font-size: 1.3rem;
+    color: #3BB646;
+
+}
+
+.blog-grid .img-box {
+    overflow: hidden;
+}
+
+.blog-grid hr {
+    border-top: 1px solid #3BB646;
+}

@@ -1,0 +1,315 @@
+//商品列表
+.product-inner {
+
+    // 商品列表-在線品牌簡介
+    .brand-header {
+        margin: 0px auto;
+        padding: 50px 0;
+        text-align: center;
+
+        .text-box {
+            margin: 30px auto 0;
+            line-height: 1.8;
+            white-space: pre-wrap;
+        }
+    }
+
+    // 商品列表-墨水產品顏色篩選
+    .color-chart {
+        background-color: $black;
+        text-align: center;
+        @include padding-tb-15;
+
+        .color-slide {
+            justify-content: space-between;
+
+            a {
+                color: $white;
+
+                span {
+                    margin-top: 10px;
+                    display: block;
+                }
+            }
+
+            @include media-breakpoint-up(md) {
+                .img-box {
+                    flex: 1;
+                    max-width: 8%;
+                }
+            }
+
+            @include media-breakpoint-down(sm) {
+                @include padding-lr-15;
+
+                .slick-prev {
+                    left: 0;
+                }
+
+                .slick-next {
+                    right: 0;
+                }
+            }
+
+        }
+
+    }
+
+    //商品列表-商品列表
+    .productList-content {
+        margin: 50px auto;
+
+        //篩選標籤
+        .tag-box {
+            span {
+                display: inline-block;
+                border: 1px solid $main-gray;
+                padding: .3rem .5rem;
+                font-size: .9rem;
+                margin: 0 10px 10px 0;
+                cursor: pointer;
+                @include transition-cubic;
+
+                &::after {
+                    content: "\f00d";
+                    @extend %fontAwe;
+                }
+
+                svg {
+                    margin-left: .5rem;
+                }
+
+                &:hover {
+                    color: $main-gray;
+                    border-color: $main-gray;
+                }
+            }
+        }
+
+        // 篩選排序按鈕
+        .controller {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px auto;
+
+
+            //手機版篩選器按鈕
+            .filter-btn {
+                @include mob-display;
+
+                button {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: baseline;
+                }
+
+                svg {
+                    margin-left: 0.5rem;
+                }
+            }
+
+            //排序按鈕
+            .order-select {
+                margin-left: auto;
+                position: relative;
+
+                svg {
+                    position: absolute;
+                    right: 0;
+                    top: 2px;
+                }
+
+                &::after {
+                    content: "\f0d7";
+                    @extend %fontAwe;
+                }
+
+                select {
+                    display: block;
+                    background: none;
+                    color: $black;
+                    text-align: right;
+                    width: 100%;
+                    height: auto;
+                    padding: 0;
+
+                    @include media-breakpoint-up(md) {
+                        width: 50px;
+
+                    }
+                }
+            }
+        }
+
+        //商品列表
+        .product-block {
+            margin-top: 30px;
+            margin-bottom: 30px;
+
+            //左邊篩選器
+            .filter-nav {
+                padding-top: 15px;
+
+                .filter-nav-content {
+                    background-color: $white;
+                }
+
+                .drawer-header {
+                    display: none;
+                }
+
+                // 篩選器手機版
+                @include media-breakpoint-down(md) {
+                    transform: translateX(200%);
+                    position: fixed;
+                    z-index: 1000;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    height: 100%;
+                    width: 100%;
+                    text-align: left;
+                    padding: 0;
+                    @include transition-cubic;
+                    visibility: hidden;
+
+                    &.opened {
+                        transform: translateX(0);
+                        visibility: visible;
+                    }
+
+
+                    .filter-nav-content {
+                        height: 100%;
+                        width: 250px;
+                        margin-left: auto;
+
+                        .drawer-header {
+                            display: flex;
+                        }
+
+                        .filter-group {
+                            @include padding-lr-15;
+                            padding-top: 50px;
+                            overflow: auto;
+                            height: calc(100vh - 50px);
+                        }
+
+                    }
+
+                }
+
+                .filter-box {
+                    .filterHeader {
+                        cursor: pointer;
+
+                        .color-box {
+                            max-height: 15px;
+                            height: 10px;
+                            width: 100%;
+                        }
+
+                        span {
+                            display: block;
+                            text-align: center;
+                            padding-bottom: 10px;
+                            padding-top: 10px;
+                            border-bottom: 1px solid transparent;
+
+                            &::after {
+                                content: "\f0d7";
+                                @extend %fontAwe;
+                            }
+
+                            svg {
+                                margin-left: .3rem;
+                            }
+                        }
+
+                        &.on {
+                            span {
+                                border-bottom: 1px solid $light-gray;
+
+                                &::after {
+                                    content: "\f0d8";
+                                }
+                            }
+                        }
+
+                        &:hover {
+                            color: $main-gray;
+                        }
+                    }
+
+                    &:nth-child(1n+1) .filterHeader .color-box {
+                        background: url(../images/colorbar01.png) no-repeat top left / cover;
+                    }
+
+                    &:nth-child(2n+2) .filterHeader .color-box {
+                        background: url(../images/colorbar02.png) no-repeat top left / cover;
+                    }
+
+                    &:nth-child(3n+3) .filterHeader .color-box {
+                        background: url(../images/colorbar03.png) no-repeat top left / cover;
+                    }
+
+                    &:nth-child(4n+4) .filterHeader .color-box {
+                        background: url(../images/colorbar04.png) no-repeat top left / cover;
+                    }
+
+                    &:nth-child(5n+5) .filterHeader .color-box {
+                        background: url(../images/colorbar05.png) no-repeat top left / cover;
+                    }
+
+                    &:nth-child(6n+6) .filterHeader .color-box {
+                        background: url(../images/colorbar06.png) no-repeat top left / cover;
+                    }
+
+                    .filterOption {
+                        @include padding-tb-15;
+
+                        &:not(.show) {
+                            display: none;
+                        }
+                    }
+                }
+
+                .color-box {
+                    .option {
+                        margin-bottom: 10px;
+                        display: flex;
+                        align-items: center;
+
+                        .form-check-input {
+                            margin-top: -0.1rem;
+                        }
+
+                        span.color {
+                            width: 18px;
+                            height: 18px;
+                            vertical-align: top;
+                            margin-right: 5px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .productList-content {
+        margin: 30px auto;
+
+        .controller>div {
+            width: 50%;
+            margin: 10px;
+            border-bottom: 1px solid $main-gray;
+        }
+    }
+
+
+}

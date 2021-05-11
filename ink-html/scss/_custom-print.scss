@@ -1,0 +1,136 @@
+@charset "UTF-8";
+
+@media print {
+    * {
+        color: #000;
+        background: #fff;
+    }
+    /* 列印頁面設定 */
+    @page {
+
+        /*a4尺寸 直式 */
+        size: A4 portrait;
+        /*邊距0.5公分*/
+        margin: 0.5cm;
+        // orphans頁面最後一個段落的行數、widow 則是頁面第一個段落的行數
+        orphans: 2;
+        widows: 2;
+    }
+
+        ul,
+        img,
+        table {
+            page-break-inside: avoid;
+        }
+
+        a:link,
+        a:visited,
+        a {
+            word-wrap: break-word;
+            /*避免網址過長超出頁面*/
+        }
+
+        .photo-slide-box, .info-box{
+            padding-left:10px;
+            padding-right: 10px;
+          
+        }
+
+        thead {
+            display: table-header-group;
+            /* 表格即使分頁也會顯示表頭 */
+        }
+
+
+
+        .breadcrumb,
+        .pageBanner,
+        .grid-nav,
+        .printing-set,
+        .title-separator,
+        .slider-nav, header,  .slick-arrow.prev-btn,
+        .slick-arrow.next-btn, .tag-box {
+            display: none;
+        }
+
+        .productPage {
+            .print-logo{
+                display: block;
+            }
+            .container{
+                &>.title *{
+                    display: none!important;
+                    height: 50px;
+                    background: url(../images/logo.png) no-repeat center / contain;
+                    }
+            }   
+       
+            .photo-slide-box{
+                max-width: 33.33333%;
+            }
+            .info-box{
+                max-width: 66.66667%;
+            }
+            .grid-content {
+                .app-block{
+                    .title{
+                        display: none;
+                    }
+                }
+                .app-block::after,
+                .contact-box::after {
+                    font-size: 0.7rem;
+                    text-align: center;
+                    display: block;
+                }
+
+                // .app-block::after {
+                //     margin-top: 20px;
+                //     padding-top: 10px;
+                //     border-top: 2px solid $main-gray;
+                //     content: "台灣富見雄事業股份有限公司-(02)8791-2333";
+                // }
+
+                // .contact-box::after {
+                //     content: "Copyright©2020 Taiwan Fumio LTD. All rights reserved.";
+                // }
+
+                .contact-btn {
+                    display: none;
+                }
+            }
+        }
+        footer{
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            .hint{
+                margin-bottom: 0;
+            }
+   
+            a{
+                color: $main-gray!important;
+                text-align: center !important;
+            }
+           
+
+            .container{
+                p{
+                color: $main-gray;
+
+                    display: inline-block;
+                    margin-right: 10px;
+                    &:nth-child(5), &:nth-child(6), &:nth-child(7){
+                        display: none;
+                    }
+                    &:last-child{
+                        display: block;
+                    }
+                }
+        
+
+            }
+        }
+
+
+    }

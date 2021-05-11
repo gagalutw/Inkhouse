@@ -1,0 +1,724 @@
+//商品詳細頁
+.product-detail-inner {
+    .brand-logo {
+        padding-top: 50px;
+        padding-bottom: 50px;
+
+        @include media-breakpoint-down(md) {
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+    }
+
+
+    .product-content {
+        >div>div {
+            margin-top: 50px;
+            margin-bottom: 50px;
+
+            @include media-breakpoint-down(md) {
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+        }
+
+        position: relative;
+
+        // 進入畫面
+        @include media-breakpoint-up(lg) {
+            &.entered {
+                .productSlide-controller {
+                    position: fixed;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+
+                .productSlide {
+                    margin-left: 50px;
+                    
+                }
+
+                //右邊產品資訊吸住
+                .productInfo-wrap {
+                    // border: 5px solid yellowgreen;
+                    position: fixed;
+                    margin-top: 0;
+                    bottom: 50px;
+                    top: 130px; //header108+22
+                    transform: matrix(1, 0, 0, 1, 0, 0);
+                    display: flex;
+
+                    .productInfo {
+                        // height: 100%;
+                        width: 100%;
+                        flex-basis: auto;
+                        // margin: auto;
+                    }
+                }
+
+                // 進入最後一張
+                &.active {
+
+
+                    .productInfo-wrap {
+                        // position: relative;
+                        position: absolute;
+                        top: auto;
+                        bottom: 0;
+                        min-height: auto;
+                    }
+
+
+                    .productSlide-controller {
+                        transform: translateY(0%);
+                        position: absolute;
+                        top: auto;
+                        bottom: 200px;
+                    }
+                }
+            }
+        }
+    }
+
+    .custom-select {
+        color: $black;
+    }
+
+
+    // 墨水色票
+    .swatch {
+        border: 1px solid $light-gray;
+        height: 108px;
+        position: relative;
+        overflow: hidden;
+        background: $white;
+        @include transition-cubic;
+
+        button {
+            position: absolute;
+            right: 10px;
+            font-size: 1.2rem;
+            bottom: 0px;
+            z-index: 100;
+
+
+            &.swatch-btn {
+                color: $light-gray;
+            }
+
+            &.close-element {
+
+                // top: 0;
+                &::after {
+                    display: none;
+                }
+            }
+
+        }
+
+        >div {
+            padding: 15px 0;
+        }
+
+        a {
+            text-align: center;
+            font-size: .9rem;
+            margin-top: 10px;
+            margin-bottom: 15px;
+
+            span {
+                display: block;
+
+            }
+
+            span.color {
+                margin-bottom: 5px;
+                width: 24px;
+                height: 24px;
+                position: relative;
+                display: inline-block;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    left: -5px;
+                    top: -5px;
+                    border: 2px solid #e1e1e1;
+                    margin: 1px;
+                    display: block;
+                    border-radius: 100%;
+                    width: 30px;
+                    height: 30px;
+                    visibility: hidden;
+                }
+            }
+
+            &:hover,
+            &.active {
+                span.color::after {
+                    visibility: visible;
+                }
+            }
+        }
+
+        &.expand {
+            .swatch-btn {
+                visibility: hidden;
+            }
+        }
+    }
+
+    //// // // //  商品內容
+    //左邊圖片展示
+    .productSlide-block {
+        @include media-breakpoint-up(lg) {
+            @include Dflex;
+            align-items: center;
+        }
+    }
+
+    //左邊圖片展示控制nav
+    .productSlide-controller {
+        top: 0%;
+
+        @include transition-cubic;
+
+        .slide-nav-pill {
+        @include transition-cubic;
+            flex-direction: column;
+            width: 50px;
+            top: 0;
+
+            a {
+                color: $light-gray;
+                padding: 0;
+
+                &.active {
+                    color: $black;
+                }
+            }
+
+            a.nav-link::after {
+                content: "．";
+                font-size: 1.8rem;
+                display: inline;
+                font-weight: bold;
+                vertical-align: bottom;
+            }
+        }
+
+        @include media-breakpoint-down(md) {
+            visibility: hidden;
+            height: 0;
+        }
+    }
+
+    .productSlide {
+        @include media-breakpoint-up(lg) {
+            flex: 1;
+            // 商品圖滑動中
+            .img-box {
+                padding-bottom: 15px;
+                @include transition-cubic;
+            }
+        }
+    }
+
+    //slide slick控制
+    .slick-arrow {
+        @include media-breakpoint-down(md) {
+            display: none;
+        }
+    }
+
+    //右邊商品資訊
+    //初始值
+    .productInfo-wrap {
+        position: relative;
+        top: 108px;
+        margin-top: -108px;
+        @include transition-cubic;
+
+        @include media-breakpoint-up(lg) {
+            min-height: calc(100vh - 108px);
+        }
+
+        @include media-breakpoint-down(md) {
+            top: auto;
+            margin-top: 0px;
+
+        }
+
+        .productInfo {        
+        // @include transition-cubic;
+
+            >div:not(:last-child) {
+                border-bottom: 1px solid $light-black;
+                padding: 15px 0;
+            }
+
+            >div:first-child {
+                padding-top: 0;
+            }
+
+            p {
+                margin-bottom: .3rem;
+                @include media-breakpoint-down(md){
+                    &._data._point, span{
+                        text-align: left;
+                    }
+                }
+            }
+
+            .hint {
+                svg {
+                    display: none;
+                }
+            }
+
+
+            .text-box {
+                ._type {
+                    font-size: 1.3rem;
+                }
+
+                ._pid {
+                    font-size: .9rem;
+                }
+            }
+
+            .info-box {
+                span{
+                    display: block;
+                }
+                
+
+                ._point {
+                    &::before {
+                        font-weight: 400;
+                        text-decoration: underline;
+                    }
+
+                    span {
+                        text-decoration: none;
+                        font-weight: inherit;
+
+                        @include media-breakpoint-down(sm) {
+                            display: block;
+                        }
+                    }
+                }
+                .hint {
+                    color: $red;
+                    margin-top: .3rem;
+                }
+              
+            }
+
+            .type-box {
+                display: flex;
+                .custom-select {
+                    border: 1px solid $light-gray;
+                    background-color: $white;
+                    min-width: 75px;
+                    margin-right: 20px;
+                }
+                @include media-breakpoint-down(md) {
+                    display: flex;
+                }
+
+                .amoutSpinner {
+                    display: inline-block;
+                    margin-left: 20px;
+                    position: relative;
+
+                    .ui-spinner {
+                        border-radius: 0;
+                        border: 1px solid $light-gray;
+                        margin-left: 10px;
+
+
+                        .ui-spinner-input {
+                            max-width: 80px;
+                            height: calc(2.25rem + 2px);
+                            padding: 0.375rem 1.75rem 0.375rem 0.75rem;
+                            margin: 0;
+
+                        }
+
+                        .ui-button {
+                            background-color: transparent;
+                            border-radius: 0;
+                            border: none;
+
+                            .ui-icon-triangle-1-n {
+                                background-position: 0 -10px;
+                            }
+
+                            .ui-icon-triangle-1-s {
+                                background-position: -65px -21px;
+                            }
+
+                        }
+
+                    }
+
+                    // 手機版樣spinner 數量+ - Jquery UI樣式
+                    @include media-breakpoint-down(md) {
+                        @include Dflex;
+                         max-width: 200px;
+                         align-items: center;
+                        .ui-spinner.ui-widget.ui-widget-content {
+                            width:calc(100% - 50px);
+                            padding: 0;
+                            position: relative;
+                            display: flex;
+                            justify-content: space-between;
+                            border: none;
+                            background: transparent;
+
+                            .ui-spinner-input {
+                                width: 50%;
+                                margin: 0;
+                                padding-left: 10px;
+                                padding-right:10px;
+                                text-align: center;
+                                border: 1px solid $light-gray;
+                                order: 2;
+                            }
+
+                            .ui-spinner-button {
+                                position: relative;
+                                height: 38px;
+                                width: 30px;
+                                text-indent: inherit;
+                                border: none;
+                                background: transparent;
+
+                                &.ui-spinner-up {
+                                    order: 3;
+
+                                    .ui-icon {
+                                        &::before {
+                                            content: "\f055";
+                                        }
+                                    }
+                                }
+
+                                &.ui-spinner-down {
+                                    order: 1;
+                                    right: auto;
+                                    left: 0;
+
+                                    .ui-icon {
+                                        &::before {
+                                            content: "\f056";
+                                        }
+                                    }
+                                }
+
+                                .ui-icon {
+                                    text-indent: inherit;
+                                    background: none;
+                                    padding: 0;
+                                    position: relative;
+                                    top: 0%;
+                                    left: 0%;
+                                    height: 100%;
+                                    line-height: 100%;
+                                    margin-top: 0px;
+                                    margin-left: 0px;
+
+                                    &::before {
+                                        display: inline-block;
+                                        width: 100%;
+                                        height: 100%;
+                                        right: 0;
+                                        z-index: 30;
+                                        font-size: 1rem;
+                                        line-height: 100%;
+                                        @include fontAwe;
+                                    }
+
+                                    svg {
+                                        left: 0;
+                                        @include v-center;
+                                    }
+                                }
+                            }
+
+                            .ui-button-icon-space {
+                                padding-left: 0;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .page-btn-wrap {
+                @include media-breakpoint-up(lg) {
+                    justify-content: flex-start;
+                    margin-bottom: 0;
+
+                    & :first-child.main-btn {
+                        margin-left: 0;
+                    }
+                }
+
+                @include media-breakpoint-down(sm) {
+                    padding-bottom: 50px;
+                }
+            }
+        }
+    }
+
+    //下方包裝產品說明
+    .detail-box {
+        margin: 50px auto;
+
+        .text-box {
+            padding-top: 30px;
+
+            @include media-breakpoint-down(sm) {
+                padding-top: 15px;
+
+            }
+        }
+    }
+}
+
+
+
+
+////////////////////匠心臻品
+.inner-content.collection-inner {
+    background: $black;
+
+        //  技法列表
+        .skill-box {
+            position: relative;
+
+            p {
+                font-size: 1.5rem;
+                letter-spacing: 15px;
+                @include center;
+                z-index: 10;
+            }
+
+            @include media-breakpoint-up(lg) {
+                max-height: 600px;
+                overflow: hidden;
+            }
+
+            @include media-breakpoint-down(md) {
+                a img:hover {
+                    transform: scale(1);
+                }
+            }
+        }
+
+        // 技法詳細頁
+        .skill-title {
+            padding: 150px 0;
+            text-align: center;
+            font-size: 2rem;
+            letter-spacing: 10px;
+            margin: 0;
+            display: block;
+
+            @include media-breakpoint-down(md) {
+                padding: 60px 0;
+            }
+        }
+
+        .sub-skill-box {
+            margin: 50px auto;
+            padding: 0;
+
+            .SkillBox {
+                margin: 30px auto;
+
+                @include media-breakpoint-down(md) {
+                    margin: 7.5px auto;
+                    padding: 0;
+                }
+
+                a {
+                    border: 1px solid $white;
+                    @include Dflex;
+                    align-items: center;
+                    color: $white;
+                    text-align: center;
+                    position: relative;
+                    overflow: hidden;
+
+                    &::after {
+                        position: absolute;
+                        content: "+";
+                        font-size: 1.2rem;
+                        right: 15px;
+                        bottom: 12px;
+                    }
+
+                    &:hover {
+                        border: 1px solid $main-gray;
+
+                    }
+                }
+
+            }
+
+            @include media-breakpoint-down(md) {
+                margin: 30px auto;
+                padding: 0;
+            }
+
+        }
+
+        //////////////////////// 商品詳細頁
+
+        // 商品色票
+        .swatch {
+            background: $black;
+
+            span.color::after {
+                border: 1px solid #e1e1e1;
+            }
+
+            .close-element {
+                color: $white;
+            }
+        }
+
+
+
+        //slider
+        .productSlide-controller {
+            .slick-dots li button:before {
+                color: $white;
+            }
+
+            .slide-nav-pill a {
+                color: $main-gray;
+
+                &.active {
+                    color: $white;
+                }
+            }
+        }
+
+        //slide slick控制
+        .slick-dots li button:before {
+            color: $white;
+        }
+
+        .slick-arrow {
+            @include media-breakpoint-down(md) {
+                display: none;
+            }
+        }
+
+
+
+        .productInfo {
+            .page-btn-wrap {
+                text-align: left;
+            }
+        }
+
+        //商品數量
+        .amoutSpinner {
+            color: $white;
+
+            input {
+                color: $black;
+            }
+        }
+
+        .detail-box .sub-title::before {
+            background: url(../images/kvlogow.png) no-repeat center/contain;
+        }
+    
+}
+
+
+
+.collection-inner.inner-content, .modal-body{
+    .skill-title.sub-title {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-top: 1px solid $white;
+        border-bottom: 1px solid $white;
+        font-size: 1.1rem;
+        display: block;
+        text-align: center;
+    
+        @include media-breakpoint-down(md) {
+            padding: 5px 0;
+        }
+    
+        &::before {
+            display: none;
+        }
+    }
+}
+
+
+
+    //技法詳細頁-相關產品
+    .modal-body {
+        .skill-title.sub-title{
+            margin-top: 80px;
+        }
+        .slick-dots li button:before {
+            color: $white;
+        }
+    }
+
+  
+
+    .sub-product-box {
+        margin: 50px auto;
+        @include media-breakpoint-down(sm){
+            margin: 30px auto;
+        }
+
+        .slideFour .slick-slide {
+            padding: 10px;
+
+            span {
+                display: block;
+                margin-top: 15px;
+                text-align: center;
+            }
+        }
+    }
+
+
+// 黑色主題設定
+.collection-inner.inner-content,
+.collection-inner.product-detail-inner,
+.dark-content {
+    color: $white;
+
+    a, span, p {
+        color: $white;
+
+        a:hover {
+            color: $main-gray;
+        }
+    }
+
+    .sub-title.sec-seb{
+        color: $white;}
+
+    //按鈕
+    .main-btn {
+        @include theme-colors(light-theme);
+    }
+}
+
+
+.dark-content {
+    background: $lighten-black;
+}

@@ -1,0 +1,71 @@
+
+$main-yellow:#FFE900!default;
+$main-brown: #834027 !default;
+$main-gray:#666 !default;
+$light-gray:#ccc !default;
+// $lighten-gray:#EBEBEB!default;
+ $lighten-gray:#F7F7F7!default;
+$lighten-black:#272727!default;
+$light-black:#3b3b3b!default;
+// 綠色 #007C2F
+// 咖啡色#834027
+
+
+
+//----------文字優雅降級
+@function calculateRem($size) {
+    $remSize: $size / 16px;
+    @return $remSize * 1rem;
+}
+@mixin font-size($size) {
+    font-size: $size;
+    font-size: calculateRem($size);
+}
+//usage
+// .example-font-size {
+//     @include font-size(14px)
+// }
+
+
+$type-scales : (
+  minor-second: 1.067,
+  major-second: 1.125,
+  minor-third: 1.200,
+  major-third: 1.250,
+  perfect-fourth: 1.333,
+  augmented-fourth: 1.414,
+  perfect-fifth: 1.500,
+  golden-ratio: 1.618
+);
+
+
+@function check-type-scale-value($scale) {
+
+  // Check $scale against the values in $type-scales.
+  @if map-has-key($type-scales, $scale) {
+
+    // If the value of $scale is defined in
+    // $type-scales, return the value of $scale.
+    @return map-get($type-scales, $scale);
+
+  // If the value of $scale is not defined in the
+  // $type-scales map, check if the value is a number
+  // and that the number is a unitless value.
+  } @else if type-of($scale) == number and unitless($scale) {
+
+    // If the value of $scale is a unitless number,
+    // return the number.
+    @return $scale;
+
+  // Lastly, should the value passed to $scale be neither
+  // found in the $type-scales map nor a unitless number,
+  // throw a Sass error to explain the issue.
+  } @else {
+
+    // Throw a Sass error if the $scale value is
+    // neither found in the $type-scales map nor
+    // a unitless number.
+    @error "Sorry, `#{$scale}` is not a unitless number value or a pre-defined key in the $type-scales map.";
+  }
+
+}
